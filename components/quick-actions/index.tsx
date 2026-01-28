@@ -1,6 +1,6 @@
 import { Minus, Plus } from "lucide-react-native";
 import { View } from "react-native";
-import ActionButton from "./ui/action-button";
+import ActionButton from "../ui/action-button";
 
 export function QuickActions() {
     return (

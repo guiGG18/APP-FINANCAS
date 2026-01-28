@@ -1,5 +1,7 @@
 import BalanceCard from '@/components/balance-card';
+import CreditCardSection from '@/components/credit-card-section';
 import { QuickActions } from '@/components/quick-actions';
+import { RecentActivities } from '@/components/recent-activities';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -10,6 +12,8 @@ export default function Index() {
         <BalanceCard />
         <QuickActions />
       </View>
+      <CreditCardSection />
+      <RecentActivities />
     </SafeAreaView>
   );
 }
