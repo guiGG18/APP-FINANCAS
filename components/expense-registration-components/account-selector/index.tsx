@@ -9,27 +9,28 @@ export interface Category {
     icon: React.ElementType;
 }
 
-interface CategorySelectorProps {
-    categories: Category[];
+interface AccountSelectorProps {
+
+    accounts: Category[];
     name: string;
 }
 
-const CategorySelector: React.FC<CategorySelectorProps> = ({ categories = [], name }) => {
+const AccountSelector: React.FC<AccountSelectorProps> = ({ accounts = [], name }) => {
     const { control } = useFormContext();
     return (
         <View className="mb-4">
             <Text className="text-[#5C4A3A] text-sm font-bold mb-3">
-                Categorias
+                Contas
             </Text>
 
             <Controller
                 control={control}
                 name={name}
-                rules={{ required: "Selecione uma categoria" }}
+                rules={{ required: "Selecione uma Conta" }}
                 render={({ field: { onChange, value }, fieldState: { error } }) => (
                     <View>
                         <View className="flex-row flex-wrap justify-start gap-y-2">
-                            {(categories ?? []).map((cat) => {
+                            {(accounts ?? []).map((cat) => {
                                 const Icon = cat.icon;
                                 const isSelected = value === cat.value;
 
@@ -80,4 +81,4 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({ categories = [], na
     );
 };
 
-export default CategorySelector;
+export default AccountSelector;
