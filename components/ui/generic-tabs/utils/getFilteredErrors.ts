@@ -3,17 +3,13 @@ import { FilteredErrorItem } from '../types/FilteredErrorItem';
 interface TabItem {
     id: string;
     label: string;
-    render?: () => React.ReactNode; // Mudou de component para render (função)
+    render?: () => React.ReactNode;
 }
-
-// Definindo o tipo do retorno para facilitar o uso depois
-
 
 export const getFilteredErrorsArray = (
     tabs: TabItem[],
     errors: FieldErrors
 ): FilteredErrorItem[] => {
-    console.log('erros na funcao util', errors)
     const fieldNames = tabs.map(tab => tab.id);
     if (!fieldNames || !errors) return [];
 
@@ -23,8 +19,8 @@ export const getFilteredErrorsArray = (
 
             if (error) {
                 return {
-                    name,   // Ex: "category"
-                    error   // Ex: { type: "required", message: "Selecione...", ref: ... }
+                    name,
+                    error
                 };
             }
             return null;

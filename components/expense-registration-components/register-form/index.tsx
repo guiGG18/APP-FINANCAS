@@ -50,11 +50,8 @@ export default function RegisterForm() {
     ], [])
 
     const { control, handleSubmit, formState: { errors } } = methods;
-    console.log("Erros do formulário:", errors); // Debug: veja os erros atuais do formulário
-
 
     const onSubmit = (data: any) => {
-        // No submit, o 'valor_despesa' virá formatado como "R$ 10,00"
         console.log("Dados do formulário:", data);
     };
 

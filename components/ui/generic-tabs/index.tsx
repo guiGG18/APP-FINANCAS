@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useFormContext, useFormState } from 'react-hook-form';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { getFilteredErrorsArray } from './utils/getFilteredErrors';
@@ -21,14 +21,22 @@ interface FormInputs {
   account: string;
 }
 
-export function GenericTabs({ tabs, fieldNames }: GenericTabsProps) {
+export function GenericTabs({ tabs }: GenericTabsProps) {
 
   const [activeTab, setActiveTab] = useState(tabs?.[0]?.id);
   const { control } = useFormContext<FormInputs>();
-  const { errors: formErrorsFromControl } = useFormState({
+  const { errors: formErrorsFromControl, isSubmitting } = useFormState({
     control,
   });
-  const filteredErrors = useMemo(() => { return getFilteredErrorsArray(tabs, formErrorsFromControl); }, [tabs, JSON.stringify(formErrorsFromControl)]);
+
+  const filteredErrors = useMemo(
+    () => getFilteredErrorsArray(tabs, formErrorsFromControl),
+    [tabs, JSON.stringify(formErrorsFromControl)]);
+
+  useEffect(() => {
+    if (filteredErrors.length === 0 || !isSubmitting) return;
+    setActiveTab(filteredErrors[0]?.name);
+  }, [JSON.stringify(formErrorsFromControl), isSubmitting]);
 
   return (
     <View className="">

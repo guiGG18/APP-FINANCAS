@@ -26,7 +26,7 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({ categories = [], na
                 control={control}
                 name={name}
                 rules={{ required: "Selecione uma categoria" }}
-                render={({ field: { onChange, value }, fieldState: { error } }) => (
+                render={({ field: { onChange, value }, fieldState: { error }, formState: { isSubmitted } }) => (
                     <View>
                         <View className="flex-row flex-wrap justify-start gap-y-2">
                             {(categories ?? []).map((cat) => {
