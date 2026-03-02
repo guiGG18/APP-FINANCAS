@@ -1,17 +1,19 @@
-import { Text, View } from 'react-native';
+import BalanceCard from '@/components/balance-card';
+import CreditCardSection from '@/components/credit-card-section';
+import { QuickActions } from '@/components/quick-actions';
+import { RecentActivities } from '@/components/recent-activities';
+import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Index() {
   return (
-    // O SafeAreaView garante que não bata no notch
-    // O bg-[#25292e] aqui garante que a tela toda tenha cor
-    <SafeAreaView className="flex-1 bg-[#25292e]">
-      
-      {/* Esta View interna faz o trabalho de centralizar tudo */}
-      <View className="flex-1 items-center justify-center">
-        <Text className="text-white text-2xl">hello world 2</Text>
+    <SafeAreaView className="flex-1 bg-[#ededed] items-center">       
+      <View  className="w-full flex justify-center items-center px-1 pl-3">
+        <BalanceCard />
+        <QuickActions />
       </View>
-
+      <CreditCardSection />
+      <RecentActivities />
     </SafeAreaView>
   );
 }
