@@ -15,7 +15,7 @@ interface GenericTabsProps {
 
 interface FormInputs {
   nome: string;
-  valor_despesa: string;
+  expenseAmount: string;
   category: string;
   paymentMethod: string;
   account: string;
