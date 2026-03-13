@@ -15,6 +15,7 @@ export default function RootLayout() {
             options={{ title: 'Nova Despesa', headerShown: false }}
 
           />
+          <Stack.Screen name='expense-list-page/index' options={{ title: 'Todas as despesas', headerShown: false }} />
         </Stack>
       </SafeAreaProvider>
     </GestureHandlerRootView>

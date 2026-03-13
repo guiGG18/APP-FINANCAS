@@ -18,7 +18,7 @@ export default function RegisterForm() {
         mode: 'onChange',
         defaultValues: {
             nome: '',
-            valor_despesa: '',
+            expenseAmount: '',
             category: '',
             paymentMethod: '',
             account: ''
@@ -76,7 +76,7 @@ export default function RegisterForm() {
 
                 <Controller
                     control={control}
-                    name="valor_despesa"
+                    name="expenseAmount"
                     rules={{ required: "Valor da despesa é obrigatório" }}
                     render={({ field: { onChange, value } }) => (
                         <InputGeneric
@@ -85,7 +85,7 @@ export default function RegisterForm() {
                             mask={Masks.BRL_CURRENCY} // Aplica a máscara de Real Brasileiro
                             value={value}
                             onChangeValue={(text, rawText) => onChange(rawText)}
-                            error={errors.valor_despesa?.message}
+                            error={errors.expenseAmount?.message}
                             nativeProps={{
                                 placeholder: "R$ 0,00",
                                 keyboardType: "numeric"
